@@ -18,7 +18,7 @@ class Gallery extends Component {
     }
     handleClick(image) {
     const {images} = this.state;
-    require('datamosh')(
+    require('./helpers/mosh.js')(
         {
             read: image,
             mode: 'fatcat',

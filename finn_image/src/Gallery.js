@@ -3,7 +3,7 @@ import {Component} from 'react';
 import logo from './logo.svg';
 import {Image, Container, Row, Col} from 'react-bootstrap';
 import './App.css';
-
+import mosh from './helpers/mosh.js';
 class Gallery extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class Gallery extends Component {
     }
     handleClick(image) {
     const {images} = this.state;
-    require('./helpers/mosh.js')(
+    mosh(
         {
             read: image,
             mode: 'fatcat',

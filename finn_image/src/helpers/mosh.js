@@ -5,8 +5,6 @@ const Jimp = require('jimp')
 const debug = require('util').debuglog('mosh')
 const path = require('path')
 
-module.exports = mosh
-
 function mosh (options, cb) {
   debug('Moshing started.') // it's cool cuz it's nerdy.
 
@@ -99,3 +97,5 @@ mosh.MODES = {
   fatcat: require('./modes/fatcat'),
   vaporwave: require('./modes/vaporwave')
 }
+
+export default mosh;

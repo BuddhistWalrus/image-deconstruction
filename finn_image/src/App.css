@@ -43,3 +43,9 @@
 .images-outer-container img:hover {
   cursor: pointer;
 }
+.images-outer-container .badge:hover {
+  cursor: pointer;
+}
+.images-outer-container .badge,.active {
+  cursor: pointer;
+}

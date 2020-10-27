@@ -1,7 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import logo from './logo.svg';
-import {Image, Container, Row, Col, Modal, Spinner} from 'react-bootstrap';
+import {Image, Container, Row, Col, Modal, Spinner, Card, Badge} from 'react-bootstrap';
 import './App.css';
 import mosh from './helpers/mosh.js';
 class Gallery extends Component {
@@ -13,16 +13,17 @@ class Gallery extends Component {
                 {value: 'https://finn-deconstruction.s3.amazonaws.com/example2.jpg', base64: null},
                 {value: 'https://finn-deconstruction.s3.amazonaws.com/example3.jpg', base64: null},
                 {value: 'https://finn-deconstruction.s3.amazonaws.com/example4.jpg', base64: null}
-            ]
+            ],
+            mode: 'schifty'
         };
     }
     handleClick(image) {
-    const {images} = this.state;
+    const {images, mode} = this.state;
     this.setState({loading: true});
     mosh(
         {
             read: image,
-            mode: 'schifty',
+            mode,
             headers: {
                 [`Sec-Fetch-Mode`]: `no-cors`
             }
@@ -39,6 +40,17 @@ class Gallery extends Component {
         const {images,loading} = this.state;
         return (
         <Container fluid className={'p-5 images-outer-container'}>
+            <Row>
+                <Col>
+                    <div className={'d-inline-block'}>
+                        <Badge variant={'primary'} onClick={() => {this.setState({mode: 'schifty'})}}>Shifty</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'vaporwave'})}}>Vapeaur</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'vana'})}}>Verdant</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'veneneux'})}}>Two-Tone</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'blurbobb'})}}>Blobb</Badge>
+                    </div>
+                </Col>
+            </Row>
             {!loading &&
             <Row>
                 {images && images.map(image => {

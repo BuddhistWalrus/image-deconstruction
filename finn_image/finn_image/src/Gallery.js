@@ -25,8 +25,7 @@ class Gallery extends Component {
             read: image,
             mode,
             headers: {
-                "Sec-Fetch-Mode": "no-cors"
-
+                [`Sec-Fetch-Mode`]: `no-cors`
             }
         },
         (err, moshedImg) => {
@@ -38,17 +37,17 @@ class Gallery extends Component {
     )
     }
     render() {
-        const {images,loading,mode} = this.state;
+        const {images,loading} = this.state;
         return (
         <Container fluid className={'p-5 images-outer-container'}>
-            <Row className={'mb-4'}>
+            <Row>
                 <Col>
                     <div className={'d-inline-block'}>
-                        <Badge className={'mr-2'} variant={`${mode==='schifty' ? 'primary' : 'secondary'}`} onClick={() => {this.setState({mode: 'schifty'})}}>Shifty</Badge>
-                        <Badge className={'mr-2'} variant={`${mode==='vaporwave' ? 'primary' : 'secondary'}`} onClick={() => {this.setState({mode: 'vaporwave'})}}>Vapeaur</Badge>
-                        <Badge className={'mr-2'} variant={`${mode==='vana' ? 'primary' : 'secondary'}`} onClick={() => {this.setState({mode: 'vana'})}}>Verdant</Badge>
-                        <Badge className={'mr-2'} variant={`${mode==='veneneux' ? 'primary' : 'secondary'}`} onClick={() => {this.setState({mode: 'veneneux'})}}>Two-Tone</Badge>
-                        <Badge className={'mr-2'} variant={`${mode==='blurbobb' ? 'primary' : 'secondary'}`} onClick={() => {this.setState({mode: 'blurbobb'})}}>Blobb</Badge>
+                        <Badge variant={'primary'} onClick={() => {this.setState({mode: 'schifty'})}}>Shifty</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'vaporwave'})}}>Vapeaur</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'vana'})}}>Verdant</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'veneneux'})}}>Two-Tone</Badge>
+                        <Badge onClick={() => {this.setState({mode: 'blurbobb'})}}>Blobb</Badge>
                     </div>
                 </Col>
             </Row>
